@@ -33,7 +33,7 @@ class Task(BaseModel):
             ("In Progress", "In Progress"),
             ("Completed", "Completed"),
         ],
-        default="pending"
+        default="Pending"
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE) 
     priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
@@ -60,7 +60,7 @@ class SubTask(BaseModel):
                 ("In Progress", "In Progress"),
                 ("Completed", "Completed"),
             ],
-            default="pending"
+            default="Pending"
         )
 
     def __str__(self):
