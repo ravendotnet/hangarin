@@ -20,6 +20,7 @@ from webapp.views import HomePageView
 from webapp.views import TaskList, TaskCreateView, TaskUpdateView, TaskDeleteView
 from webapp.views import NoteList, NoteCreateView, NoteUpdateView, NoteDeleteView
 from webapp.views import SubtaskList, SubtaskCreateView, SubtaskUpdateView, SubtaskDeleteView
+from webapp.views import CategoryList, CategoryCreateView, CategoryUpdateView, CategoryDeleteView
 from webapp import views
 
 urlpatterns = [
@@ -40,4 +41,10 @@ urlpatterns = [
     path('subtask_list/add', SubtaskCreateView.as_view(), name='subtask-add'),
     path('subtask_list/<pk>',SubtaskUpdateView.as_view(), name='subtask-update'),
     path('subtask_list/<pk>/delete', SubtaskDeleteView.as_view(), name='subtask-delete'), 
+
+    path('category_list', CategoryList.as_view(), name='category-list'),
+    path('category_list/add', CategoryCreateView.as_view(), name='category-add'),
+    path('category_list/<pk>',CategoryUpdateView.as_view(), name='category-update'),
+    path('category_list/<pk>/delete', CategoryDeleteView.as_view(), name='category-delete'), 
+    
 ]

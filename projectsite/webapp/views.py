@@ -5,6 +5,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from webapp.models import Task 
 from webapp.models import Note
 from webapp.models import SubTask
+from webapp.models import Category
+from webapp.forms import CategoryForm
 from webapp.forms import NoteForm
 from webapp.forms import TaskForm
 from webapp.forms import SubtaskForm
@@ -87,3 +89,27 @@ class SubtaskDeleteView(DeleteView):
     model = SubTask
     template_name = 'subtask_del.html' 
     success_url = reverse_lazy('subtask-list') 
+
+# Categories
+class CategoryList(ListView): 
+    model = Category
+    context_object_name = 'category' 
+    template_name = 'category_list.html' 
+    paginate_by = 5 
+
+class CategoryCreateView(CreateView): 
+    model = Category 
+    form_class = CategoryForm
+    template_name = 'category_form.html' 
+    success_url = reverse_lazy('category-list')
+
+class CategoryUpdateView(UpdateView): 
+    model = Category 
+    form_class = CategoryForm
+    template_name = 'category_form.html' 
+    success_url = reverse_lazy('category-list') 
+
+class CategoryDeleteView(DeleteView): 
+    model = Category
+    template_name = 'category_del.html' 
+    success_url = reverse_lazy('category-list')     
