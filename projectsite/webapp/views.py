@@ -25,6 +25,8 @@ class HomePageView(ListView):
     def get_context_data(self, **kwargs): 
         context = super().get_context_data(**kwargs) 
         context["total_task"] = Task.objects.count() 
+        context["total_notes"] = Note.objects.count() 
+        context["total_subtask"] = SubTask.objects.count() 
          
         today = timezone.now().date() 
         context["task_deadline"] = Task.objects.filter(
@@ -40,7 +42,7 @@ class TaskList(ListView):
     template_name = 'task_list.html' 
     paginate_by = 5 
     ordering = ["title"]
-
+    
     def get_queryset(self):
         qs = super().get_queryset()
 
