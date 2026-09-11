@@ -19,6 +19,7 @@ from django.urls import path
 from webapp.views import HomePageView
 from webapp.views import TaskList, TaskCreateView, TaskUpdateView, TaskDeleteView
 from webapp.views import NoteList, NoteCreateView, NoteUpdateView, NoteDeleteView
+from webapp.views import SubtaskList, SubtaskCreateView, SubtaskUpdateView, SubtaskDeleteView
 from webapp import views
 
 urlpatterns = [
@@ -34,4 +35,9 @@ urlpatterns = [
     path('note_list/add', NoteCreateView.as_view(), name='note-add'),
     path('note_list/<pk>',NoteUpdateView.as_view(), name='note-update'),
     path('note_list/<pk>/delete', NoteDeleteView.as_view(), name='note-delete'), 
+
+    path('subtask_list', SubtaskList.as_view(), name='subtask-list'),
+    path('subtask_list/add', SubtaskCreateView.as_view(), name='subtask-add'),
+    path('subtask_list/<pk>',SubtaskUpdateView.as_view(), name='subtask-update'),
+    path('subtask_list/<pk>/delete', SubtaskDeleteView.as_view(), name='subtask-delete'), 
 ]
