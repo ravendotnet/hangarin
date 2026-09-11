@@ -4,6 +4,7 @@ from .models import Task
 from .models import Note 
 from .models import SubTask
 from .models import Category
+from .models import Priority
 
 
 class TaskForm(ModelForm):  
@@ -24,4 +25,10 @@ class SubtaskForm(ModelForm):
 class CategoryForm(ModelForm):  
     class Meta: 
         model = Category  
+        fields = "__all__" 
+
+
+class PriorityForm(ModelForm):  
+    class Meta: 
+        model = Priority  
         fields = "__all__" 

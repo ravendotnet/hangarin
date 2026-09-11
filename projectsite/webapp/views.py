@@ -6,6 +6,8 @@ from webapp.models import Task
 from webapp.models import Note
 from webapp.models import SubTask
 from webapp.models import Category
+from webapp.models import Priority
+from webapp.forms import PriorityForm
 from webapp.forms import CategoryForm
 from webapp.forms import NoteForm
 from webapp.forms import TaskForm
@@ -112,4 +114,28 @@ class CategoryUpdateView(UpdateView):
 class CategoryDeleteView(DeleteView): 
     model = Category
     template_name = 'category_del.html' 
-    success_url = reverse_lazy('category-list')     
+    success_url = reverse_lazy('category-list')
+
+# Priority
+class PriorityList(ListView): 
+    model = Priority
+    context_object_name = 'priority' 
+    template_name = 'priority_list.html' 
+    paginate_by = 5 
+
+class PriorityCreateView(CreateView): 
+    model = Priority 
+    form_class = PriorityForm
+    template_name = 'priority_form.html' 
+    success_url = reverse_lazy('priority-list')
+
+class PriorityUpdateView(UpdateView): 
+    model = Priority 
+    form_class = PriorityForm
+    template_name = 'priority_form.html' 
+    success_url = reverse_lazy('priority-list') 
+
+class PriorityDeleteView(DeleteView): 
+    model = Priority
+    template_name = 'priority_del.html' 
+    success_url = reverse_lazy('priority-list')
