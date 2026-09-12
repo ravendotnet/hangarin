@@ -46,14 +46,14 @@ INSTALLED_APPS = [
     'allauth.account', 
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google', 
-    'allauth.socialaccount.providers.github', 
+    #'allauth.socialaccount.providers.github', 
 ]
 
-
-if "pythonanywhere" in socket.gethostname(): 
-    SITE_ID = 1  # production site (ravendotnet.pythonanywhere.com) 
-else: 
-    SITE_ID = 2  # local site (127.0.0.1:8000)
+SITE_ID = 3
+#if "pythonanywhere" in socket.gethostname(): 
+#    SITE_ID = 1  # production site (ravendotnet.pythonanywhere.com) 
+#else: 
+#    SITE_ID = 2  # local site (127.0.0.1:8000)
  
 AUTHENTICATION_BACKENDS = [ 
     'django.contrib.auth.backends.ModelBackend',       
