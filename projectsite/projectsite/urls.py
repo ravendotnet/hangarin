@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 #from django.urls import path
 from django.urls import path, include 
+from django.contrib.auth import views as auth_views
 from webapp.views import HomePageView
 from webapp.views import TaskList, TaskCreateView, TaskUpdateView, TaskDeleteView
 from webapp.views import NoteList, NoteCreateView, NoteUpdateView, NoteDeleteView
@@ -28,6 +29,7 @@ from webapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("allauth.urls")),  # allauth routes 
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path("", views.HomePageView.as_view(), name='home'),
 
     path('task_list', TaskList.as_view(), name='task-list'),
