@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-2@@uqod@v94w^n4x6nh4x62#e&0p0_6p33yizo4l!psnm*u^ij
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ravendotnet.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','ravendotnet.pythonanywhere.com', ]
 
 
 # Application definition
@@ -49,11 +49,11 @@ INSTALLED_APPS = [
     #'allauth.socialaccount.providers.github', 
 ]
 
-SITE_ID = 3
-#if "pythonanywhere" in socket.gethostname(): 
-#    SITE_ID = 1  # production site (ravendotnet.pythonanywhere.com) 
-#else: 
-#    SITE_ID = 2  # local site (127.0.0.1:8000)
+#SITE_ID = 3
+if "pythonanywhere" in socket.gethostname(): 
+    SITE_ID = 4  # production site (ravendotnet.pythonanywhere.com) 
+else: 
+    SITE_ID = 3  # local site (127.0.0.1:8000)
  
 AUTHENTICATION_BACKENDS = [ 
     'django.contrib.auth.backends.ModelBackend',       
