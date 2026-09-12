@@ -1,8 +1,7 @@
 from django.shortcuts import render
-#from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.utils import timezone 
-
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from webapp.models import Task 
@@ -17,8 +16,8 @@ from webapp.forms import TaskForm
 from webapp.forms import SubtaskForm
 from django.urls import reverse_lazy  
 
-# class HomePageView(LoginRequiredMixin, ListView):  
-class HomePageView(ListView): 
+# class HomePageView(, ListView):  
+class HomePageView(LoginRequiredMixin, ListView): 
     model = Task 
     context_object_name = 'home' 
     template_name = "home.html" 

@@ -28,7 +28,7 @@ from webapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("allauth.urls")),  # allauth routes 
-    path('', views.HomePageView.as_view(), name='home'),
+    path("", views.HomePageView.as_view(), name='home'),
 
     path('task_list', TaskList.as_view(), name='task-list'),
     path('task_list/add', TaskCreateView.as_view(), name='task-add'),
