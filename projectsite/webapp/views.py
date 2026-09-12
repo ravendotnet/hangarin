@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.utils import timezone 
 
@@ -17,7 +18,7 @@ from webapp.forms import SubtaskForm
 from django.urls import reverse_lazy  
 
  
-class HomePageView(ListView): 
+class HomePageView(LoginRequiredMixin, ListView): 
     model = Task 
     context_object_name = 'home' 
     template_name = "home.html" 
