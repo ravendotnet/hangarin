@@ -28,6 +28,7 @@ from webapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('pwa.urls')),
     path("accounts/", include("allauth.urls")),  # allauth routes 
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path("", views.HomePageView.as_view(), name='home'),
